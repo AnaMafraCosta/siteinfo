@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('perfil-usuario');
+});
+
+Route::get('/admin', function () {
+    return view('perfil-admin');
+});
+
+Route::get('/editar', function () {
+    return view('perfil-editar');
 });
