@@ -24,3 +24,11 @@ Route::get('/admin', function () {
 Route::get('/editar', function () {
     return view('perfil-editar');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
