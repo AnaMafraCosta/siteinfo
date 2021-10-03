@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,12 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get('/register/create', [UserController::class, 'create'])
+    ->name('user.create');
+
+Route::post('/register/store', [UserController::class, 'store'])
+    ->name('user.store');
+
+Route::get('/register/show/{id}', [UserController::class, 'show'])
+    ->name('user.show');
