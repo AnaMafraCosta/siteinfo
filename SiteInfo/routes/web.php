@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +25,6 @@ Route::get('/admin', function () {
 Route::get('/editar', function () {
     return view('perfil-editar');
 });
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/login',[UsersController::class,'login'])->name('login');
+Route::get('/register',[UsersController::class,'register'])->name('register');
+Route::post('/store', [UsersController::class,'store'])->name('store');
