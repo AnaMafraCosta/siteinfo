@@ -25,6 +25,9 @@ Route::get('/admin', function () {
 Route::get('/editar', function () {
     return view('perfil-editar');
 });
-Route::get('/login',[UsersController::class,'login'])->name('login');
-Route::get('/register',[UsersController::class,'register'])->name('register');
-Route::post('/store', [UsersController::class,'store'])->name('store');
+
+//Route::get('/login',[UsersController::class,'login'])->name('login');
+//Route::get('/register',[UsersController::class,'register'])->name('register');
+//Route::post('/store', [UsersController::class,'store'])->name('store');
+
+require __DIR__ . '/auth.php';
