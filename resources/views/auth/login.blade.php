@@ -1,45 +1,50 @@
-@extends('auth.layout')
+@extends('layouts.auth')
 
 @section('titulo')
     Login - Usuário
 @endsection
 
+@section('mensagem')
+    Bem-vindo de volta!
+@endsection
+
 @section('form')
-<form class="user">
+<form class="user" action="{{route('login')}}" method="POST" >
+    @csrf
     <div class="form-group">
         <input type="email" class="form-control form-control-user"
-            id="exampleInputEmail" aria-describedby="emailHelp"
-            placeholder="Enter Email Address...">
+            id="email" name="email" aria-describedby="emailHelp"
+            placeholder="Insira o endereço de email">
     </div>
     <div class="form-group">
         <input type="password" class="form-control form-control-user"
-            id="exampleInputPassword" placeholder="Password">
+            id="password" name="password" placeholder="Senha">
     </div>
     <div class="form-group">
         <div class="custom-control custom-checkbox small">
             <input type="checkbox" class="custom-control-input" id="customCheck">
-            <label class="custom-control-label" for="customCheck">Remember
-                Me</label>
+            <label class="custom-control-label" for="customCheck">Lembre de mim</label>
         </div>
     </div>
-    <a href="index.html" class="btn btn-primary btn-user btn-block">
-        Login
-    </a>
+    <button class="btn btn-primary btn-user btn-block" >
+        Entrar
+    </button>
+
     <hr>
     <a href="index.html" class="btn btn-google btn-user btn-block">
-        <i class="fab fa-google fa-fw"></i> Login with Google
+        <i class="fab fa-google fa-fw"></i> Entrar com o Google
     </a>
     <a href="index.html" class="btn btn-facebook btn-user btn-block">
-        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+        <i class="fab fa-facebook-f fa-fw"></i> Entrar com o Facebook
     </a>
 </form>
 @endsection
 
 @section('links')
 <div class="text-center">
-    <a class="small" href="forgot-password.html">Forgot Password?</a>
+    <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
 </div>
 <div class="text-center">
-    <a class="small" href="register.html">Create an Account!</a>
+    <a class="small" href="register.html">Crie uma conta!</a>
 </div>   
 @endsection
