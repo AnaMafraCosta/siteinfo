@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,36 +15,39 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-});
-
-Route::get('/meusposts', function () {
-    return view('meus-posts');
-});
-
-Route::get('/admin', function () {
-    return view('dashboard-admin');
-});
-
-Route::get('/editar', function () {
-    return view('perfil-editar');
-});
-
-Route::get('/perfil', function () {
-    return view('perfil-usuario');
-});
-
-Route::get('/publicados', function () {
-    return view('post-publicado');
-});
-
-Route::get('/verpost', function () {
-    return view('ver-post');
-});
-
-Route::get('/inicio', function () {
     return view('welcome');
 });
+
+// painel de controle para qualquer usuário
+Route::get('/dashboard', function () {
+    return view('usuarios.dashboard');
+})->middleware(['auth']);
+
+// Route::get('/meusposts', function () {
+//     return view('meus-posts');
+// });
+
+// painel de controle usuário admin
+Route::get('/admin', function () {
+    return view('usuarios.admin');
+})->middleware(['auth']);
+
+Route::get('/editar', function () {
+    return view('usuarios.perfil-editar');
+})->middleware(['auth']);
+
+Route::get('/perfil', function () {
+     return view('usuarios.perfil-usuario');
+})->middleware(['auth']);
+
+// Route::get('/publicados', function () {
+//     return view('posts.post-publicado');
+// });
+
+// Route::get('/verpost', function () {
+//     return view('posts.ver-post');
+// });
+
 
 //Route::get('/login',[UsersController::class,'login'])->name('login');
 //Route::get('/register',[UsersController::class,'register'])->name('register');
