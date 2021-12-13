@@ -9,18 +9,15 @@
                                     <div class="col-lg-2 d-none d-lg-block"><img class="img-responsive img-profile rounded-circle d-flex ml-4 mt-4 w-100 h-75" src="img/undraw_profile.svg"></div>
                                     <div class="col-lg-7">
                                         <div class="p-5">
-                                                
-                                            
-                                            
                                             <div class="user">
                                                 <div class="form-group row">
-                                                    <h1 class="h1 mb-4 d-inline-block">Usuário</h1>
-                                                    <a href="" class="btn bg-warning text-dark btn-user col-sm-3 ml-auto mr-auto mb-auto">Editar Perfil</a>
+                                                    <h1 class="h1 mb-4 d-inline-block">{{$user->name}}</h1>
+                                                    <a href="{{route('user.edit', [$user = Auth::user()])}}" class="btn bg-warning text-dark btn-user col-sm-3 ml-auto mr-auto mb-auto">Editar Perfil</a>
                                                 </div>
                                                 
-                                                <h2>E-mail</h2>
-                                                <h2>Data de Nascimento</h2>
-                                                <h2>Formação</h2>
+                                                <h2>{{$user->email}}</h2>
+                                                <h2>{{$user->nascimento}}</h2>
+                                                <h2>{{$user->formacao}}</h2>
                                                 <hr> 
                                                 
                                             </div>

@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index () {
         //retorna página do dashboard para o usuário
@@ -14,31 +20,40 @@ class UserController extends Controller
         //checar o tipo de usuário
 
         //retornar página normal, ou página admin
+        return view('usuarios.dashboard');
     }
 
-    
-    public function profile () {
-        //ver o próprio perfil
-
-        //aqui é o local onde o usuário pode ver o perfil dele
-
-        return view ('usuarios.perfil-usuario');
+    public function show(User $user) {
+        $response = Gate::inspect('ver-user', $user);
+        if($response->allowed()){
+            return view('usuarios.show', ['user'=>$user]);
+        }else{
+            return redirect()->to(route('user.show', [$user = Auth::user()]));
+        }
     }
 
     public function edit (Request $request, User $user) {
-        //aqui o usuário recebe um formulário para editar 
-        //os seus dados
-
-        //return view ('form')
+        $response = Gate::inspect('ver-user', $user);
+        if($response->allowed()){
+            return view('usuarios.edit', ['user'=>$user]);
+        }else{
+            return redirect()->to(route('user.edit', [$user = Auth::user()]));
+        }
     }
 
-    public function udpate (Request $request, User $user) {
+    public function update (Request $request, User $user) {
+        Gate::authorize('ver-user', $user);
 
-        //aqui o usuário recebe os dados do form relacionados
-        //ao form de edit.
+        $email = $request->post('email');
+        $user->email= $email;
+        $nascimento = $request->post('nascimento');
+        $user->nascimento= $nascimento;
+        $formacao = $request->post('formacao');
+        $user->formacao= $formacao;
 
-        //return redirect --> profile
-
+        $user->save();
+        
+        return redirect()->to(route('user.show', ['user'=>$user]));
     }
 
 }

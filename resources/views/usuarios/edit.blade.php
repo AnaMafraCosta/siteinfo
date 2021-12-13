@@ -14,21 +14,23 @@
                                                 <h1 class="h4 text-gray-900 mb-4 d-inline-block">Usuário</h1>
                                             </div>
                                             
-                                            <form class="user">
+                                            <form action="{{route('user.update', [$user = Auth::user()])}}" class="user" method="POST">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="form-group row">
                                                     <div class="col-sm mb-3 mb-sm-0">
                                                         <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                                            placeholder="E-mail">
+                                                            placeholder="E-mail" name="email" value="{{$user->email}}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="date" class="form-control form-control-user" id="exampleInputDate"
-                                                        placeholder="Data de Nascimento">
+                                                        placeholder="Data de Nascimento" name="nascimento" value="{{$user->nascimento}}">
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm mb-3 mb-sm-0">
                                                         <input type="text" class="form-control form-control-user"
-                                                            id="exampleInputFormação" placeholder="Formação">
+                                                            id="exampleInputFormação" placeholder="Formação" name="formacao" value="{{$user->formacao}}">
                                                     </div>
                                                 </div>
                                                 <hr>

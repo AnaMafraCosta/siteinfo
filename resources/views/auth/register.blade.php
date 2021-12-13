@@ -59,6 +59,6 @@
     <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
 </div>
 <div class="text-center">
-    <a class="small" href="login.html">Já tem uma conta? Entre!</a>
+    <a class="small" href="{{route('login')}}">Já tem uma conta? Entre!</a>
 </div>
 @endsection

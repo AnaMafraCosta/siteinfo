@@ -18,10 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/user', UserController::class);
+
 // painel de controle para qualquer usuário
-Route::get('/dashboard', function () {
-    return view('usuarios.dashboard');
-})->middleware(['auth']);
+// Route::get('/dashboard', function () {
+//     return view('usuarios.dashboard');
+// })->middleware(['auth']);
 
 // Route::get('/meusposts', function () {
 //     return view('meus-posts');
@@ -34,10 +36,6 @@ Route::get('/admin', function () {
 
 Route::get('/editar', function () {
     return view('usuarios.perfil-editar');
-})->middleware(['auth']);
-
-Route::get('/perfil', function () {
-     return view('usuarios.perfil-usuario');
 })->middleware(['auth']);
 
 // Route::get('/publicados', function () {
