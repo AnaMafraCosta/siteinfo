@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -20,6 +21,7 @@ class UserController extends Controller
         //checar o tipo de usuário
 
         //retornar página normal, ou página admin
+
         return view('usuarios.dashboard');
     }
 
@@ -41,7 +43,7 @@ class UserController extends Controller
         }
     }
 
-    public function update (Request $request, User $user) {
+    public function update (UserRequest $request, User $user) {
         Gate::authorize('ver-user', $user);
 
         $email = $request->post('email');
@@ -54,6 +56,12 @@ class UserController extends Controller
         $user->save();
         
         return redirect()->to(route('user.show', ['user'=>$user]));
+    }
+    public function cadastrados()
+    {
+        $lista = User::all();
+
+        return view('usuarios.users-cadastrados',['users'=>$lista]);
     }
 
 }

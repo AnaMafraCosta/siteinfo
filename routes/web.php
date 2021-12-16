@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/user/cadastrados', [UserController::class, 'cadastrados']);
 Route::resource('/user', UserController::class);
+
 
 // painel de controle para qualquer usuário
 // Route::get('/dashboard', function () {
@@ -32,10 +33,6 @@ Route::resource('/user', UserController::class);
 // painel de controle usuário admin
 Route::get('/admin', function () {
     return view('usuarios.admin');
-})->middleware(['auth']);
-
-Route::get('/editar', function () {
-    return view('usuarios.perfil-editar');
 })->middleware(['auth']);
 
 // Route::get('/publicados', function () {

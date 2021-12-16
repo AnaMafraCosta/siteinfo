@@ -20,7 +20,10 @@
                                                 <div class="form-group row">
                                                     <div class="col-sm mb-3 mb-sm-0">
                                                         <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                                            placeholder="E-mail" name="email" value="{{$user->email}}">
+                                                            placeholder="E-mail" name="email" value="{{old('email', $user->email)}}">
+                                                            @error('email')
+                                                            <span>{{$errors->first('email')}}</span>
+                                                            @enderror
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
