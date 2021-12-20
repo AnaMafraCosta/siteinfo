@@ -35,14 +35,27 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="card o-hidden border-0 shadow-lg my-5">
                             <div class="card-body p-0">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row justify-content-center">
                                     <div class="col-lg-9">
                                         <div class="p-5 form-group row">
-                                            <h5>Deseja fazer postagens e contribuir com o conteúdo da página? Torne-se um usuário interno!</h5>
-                                            <input type="submit" class="btn bg-info text-dark btn-user col-sm-4 ml-auto" value="Enviar Solicitação">
+                                            
+                                            <form action="{{ route('solicitacaos.store') }}" method="POST" id="form_soli">
+                                                @csrf
+                                                <h5>Deseja fazer postagens e contribuir com o conteúdo da página? Torne-se um usuário interno!</h5>
+                                                <input class="d-none" type="text" value= "{{$user -> id}}" name='user_id'>
+                                                <input class="d-none" type="text" value= "{{$user -> name}}" name='name'>
+                                                <input class="d-none" type="text" value= "{{$user -> email}}" name='email'>
+                                                
+                                            </form>
+                                            
+
+                                            <input type="submit" class="btn bg-info text-dark btn-user col-sm-4 ml-auto" value="Enviar Solicitação" onclick=document.getElementById('form_soli').submit(); return false;>
+
                                         </div>
                                     </div>
                                 </div>

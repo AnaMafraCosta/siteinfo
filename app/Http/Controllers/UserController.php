@@ -64,4 +64,11 @@ class UserController extends Controller
         return view('usuarios.users-cadastrados',['users'=>$lista]);
     }
 
+    public function solicitacoes()
+    {
+        $lista = User::all();
+
+        return view('usuarios.solicitacoes-internos',['users'=>$lista]);
+    }
+
 }

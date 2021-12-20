@@ -17,24 +17,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+                    @foreach ($solicitacoes as $solicitacao)  
+                    
                     <tr>
-                        <td>28</td>
-                        <td>Romerito Campos</td>
-                        <td>romerito.campos@escolar.ifrn.edu.br</td>
+                        <td>{{ $solicitacao->user_id }}</td>
+                        <td>{{ $solicitacao->name }}</td>
+                        <td>{{ $solicitacao->email }}</td>
                         <td>
                             <a href="" class="btn-circle bg-success text-white"><i class="fas fa-plus btn-lg"></i></a>
                             <a href="" class="btn-circle bg-danger text-white"><i class="fas fa-times btn-lg"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Pedro Pedro</td>
-                        <td>pedro@pedro.com</td>
-                        <td>
-                            <a href="" class="btn-circle bg-success text-white"><i class="fas fa-plus btn-lg"></i></a>
-                            <a href="" class="btn-circle bg-danger text-white"><i class="fas fa-times btn-lg"></i></a>
-                        </td>
-                    </tr>
+
+                    @endforeach
                     
                 </tbody>
             </table>

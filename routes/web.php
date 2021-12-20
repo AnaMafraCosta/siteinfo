@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SolicitacaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/user/cadastrados', [UserController::class, 'cadastrados']);
+Route::get('/user/cadastrados', [UserController::class, 'cadastrados'])->name('users.cadastrados');
+
+Route::post('/user/solicitacoes', [SolicitacaoController::class, 'store'])->name('solicitacaos.store');
+
+Route::get('/user/solicitacoes', [SolicitacaoController::class, 'index'])->name('solicitacoes.usuarios');
+
 Route::resource('/user', UserController::class);
 
 
