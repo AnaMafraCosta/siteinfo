@@ -53,6 +53,15 @@ class UserController extends Controller
         $formacao = $request->post('formacao');
         $user->formacao= $formacao;
 
+        if($request->hasFile('image')&& $request->file('image')->isValid()){
+            $requestImage= $request->image;
+        
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".". $extension;
+            $requestImage->move(public_path('img/profiles'), $imageName);
+            $user->image =$imageName;
+        }
+
         $user->save();
         
         return redirect()->to(route('user.show', ['user'=>$user]));

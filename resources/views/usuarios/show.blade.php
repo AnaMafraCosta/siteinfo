@@ -6,7 +6,9 @@
                             <div class="card-body p-0">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-2 d-none d-lg-block"><img class="img-responsive img-profile rounded-circle d-flex ml-4 w-100 h-75" src="img/undraw_profile.svg"></div>
+                                    <div class="col-lg-2 d-lg-block align-items-center">
+                                        <img class="img-responsive img-profile rounded-circle d-flex w-100 h-50 mt-5" src="/img/profiles/{{$user->image}}">
+                                    </div>
                                     <div class="col-lg-7">
                                         <div class="p-5">
                                             <div class="text-center">

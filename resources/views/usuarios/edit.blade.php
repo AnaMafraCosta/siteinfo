@@ -7,14 +7,16 @@
                             <div class="card-body p-0">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-2 d-none d-lg-block"><img class="img-responsive img-profile rounded-circle d-flex ml-4 w-100 h-75" src="img/undraw_profile.svg"></div>
+                                    <div class="col-lg-2 d-lg-block align-items-center">
+                                        <img class="img-responsive img-profile rounded-circle d-flex w-100 h-60 mt-5" src="/img/profiles/{{$user->image}}">
+                                    </div>
                                     <div class="col-lg-7">
                                         <div class="p-5">
                                             <div class="text-center">
                                                 <h1 class="h4 text-gray-900 mb-4 d-inline-block">Usuário</h1>
                                             </div>
                                             
-                                            <form action="{{route('user.update', [$user = Auth::user()])}}" class="user" method="POST">
+                                            <form action="{{route('user.update', [$user = Auth::user()])}}" class="user" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="form-group row">
@@ -36,10 +38,15 @@
                                                             id="exampleInputFormação" placeholder="Formação" name="formacao" value="{{$user->formacao}}">
                                                     </div>
                                                 </div>
+                                                <div class="form-group row">
+                                                    <div class="col-sm mb-3 mb-sm-0">
+                                                        <label for="image">Foto de Perfil:</label>
+                                                        <input type="file" class="form-control-file" id="imagem" placeholder="Imagem de Perfil" name="image">
+                                                    </div>
+                                                </div>
                                                 <hr>
                                                 <div class="form-group row">
-                                                    
-                                                    <a href="" class="btn bg-danger text-dark btn-user col-sm-5 mr-auto" value="Excluir Perfil">Excluir Perfil</a>
+                                                    <a href="{{route('user.show', [$user = Auth::user()])}}" class="btn bg-danger text-dark btn-user col-sm-5 mr-auto" value="Cancelar Edição">Cancelar Edição</a>
                                                     <input type="submit" class="btn bg-success text-dark btn-user col-sm-5 ml-auto" value="Salvar Perfil">
                                                 </div>
                                             </form>
