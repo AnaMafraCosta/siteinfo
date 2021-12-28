@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/user/cadastrados', [UserController::class, 'cadastrados'])->name('users.cadastrados');
+Route::get('/admin/cadastrados', [UserController::class, 'cadastrados'])->name('users.cadastrados');
+
+Route::get('/admin/show/{id}', [UserController::class, 'adminShowUser'])->name('users.adminShowUser');
 
 Route::post('/user/solicitacoes', [SolicitacaoController::class, 'store'])->name('solicitacaos.store');
 
@@ -38,7 +40,7 @@ Route::resource('/user', UserController::class);
 
 // painel de controle usuário admin
 Route::get('/admin', function () {
-    return view('usuarios.admin');
+    return view('usuarios.admin.admin');
 })->middleware(['auth']);
 
 // Route::get('/publicados', function () {

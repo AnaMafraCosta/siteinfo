@@ -70,14 +70,21 @@ class UserController extends Controller
     {
         $lista = User::all();
 
-        return view('usuarios.users-cadastrados',['users'=>$lista]);
+        return view('usuarios.admin.users-cadastrados',['users'=>$lista]);
     }
 
     public function solicitacoes()
     {
         $lista = User::all();
 
-        return view('usuarios.solicitacoes-internos',['users'=>$lista]);
+        return view('usuarios.admin.solicitacoes-internos',['users'=>$lista]);
+    }
+
+
+    public function AdminShowUser(User $user, $id) {
+        
+            $usuario = User::find($id);
+            return view('usuarios.admin.showUser', ['user' => $usuario]); 
     }
 
 }

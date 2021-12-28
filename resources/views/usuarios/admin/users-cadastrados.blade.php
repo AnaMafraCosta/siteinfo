@@ -23,7 +23,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <a href="" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
+                            <a href="{{ route("users.adminShowUser", [$user->id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
                             <a href="" class="btn-circle bg-danger text-white"><i class="fas fa-trash btn-lg"></i></a>
                         </td>
                     </tr>
