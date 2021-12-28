@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SolicitacaoController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,21 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/admin/cadastrados', [UserController::class, 'cadastrados'])->name('users.cadastrados');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/admin/show/{id}', [UserController::class, 'adminShowUser'])->name('users.adminShowUser');
 
-Route::post('/user/solicitacoes', [SolicitacaoController::class, 'store'])->name('solicitacaos.store');
 
-Route::get('/user/solicitacoes', [SolicitacaoController::class, 'index'])->name('solicitacoes.usuarios');
 
-Route::resource('/user', UserController::class);
+
 
 
 // painel de controle para qualquer usuário
+
+Route::resource('/user', UserController::class);
+
 // Route::get('/dashboard', function () {
 //     return view('usuarios.dashboard');
 // })->middleware(['auth']);
@@ -39,9 +39,18 @@ Route::resource('/user', UserController::class);
 // });
 
 // painel de controle usuário admin
-Route::get('/admin', function () {
-    return view('usuarios.admin.admin');
-})->middleware(['auth']);
+
+Route::post('/admin/solicitacoes', [SolicitacaoController::class, 'store'])->name('solicitacaos.store');
+
+Route::get('/admin/solicitacoes', [SolicitacaoController::class, 'index'])->name('solicitacoes.usuarios');
+
+Route::get('/admin/cadastrados', [AdminController::class, 'cadastrados'])->name('users.cadastrados');
+
+Route::resource('/admin', AdminController::class);
+
+// Route::get('/admin', function () {
+//     return view('usuarios.admin.admin');
+// })->middleware(['auth']);
 
 // Route::get('/publicados', function () {
 //     return view('posts.post-publicado');

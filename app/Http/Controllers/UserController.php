@@ -66,25 +66,6 @@ class UserController extends Controller
         
         return redirect()->to(route('user.show', ['user'=>$user]));
     }
-    public function cadastrados()
-    {
-        $lista = User::all();
-
-        return view('usuarios.admin.users-cadastrados',['users'=>$lista]);
-    }
-
-    public function solicitacoes()
-    {
-        $lista = User::all();
-
-        return view('usuarios.admin.solicitacoes-internos',['users'=>$lista]);
-    }
-
-
-    public function AdminShowUser(User $user, $id) {
-        
-            $usuario = User::find($id);
-            return view('usuarios.admin.showUser', ['user' => $usuario]); 
-    }
+    
 
 }
