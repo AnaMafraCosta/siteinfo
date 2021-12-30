@@ -39,7 +39,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-check fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="{{route('users.cadastrados')}}" class="stretched-link"></a>
+                                        <a href="{{route('solicitacoes.usuarios')}}" class="stretched-link"></a>
                                     </div>
                                 </div>
                             </div>

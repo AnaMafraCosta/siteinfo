@@ -30,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Gate::define('ver-user',[UserPolicy::class, 'ver']);
+        Gate::define('admin-user',[UserPolicy::class, 'admin']);
     }
 }

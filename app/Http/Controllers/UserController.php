@@ -7,7 +7,9 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\Policies\UserPolicy;
 
+use App\Providers\RouteServiceProvider;
 class UserController extends Controller
 {
     public function __construct()
@@ -16,13 +18,12 @@ class UserController extends Controller
     }
 
     public function index () {
-        //retorna página do dashboard para o usuário
-
-        //checar o tipo de usuário
-
-        //retornar página normal, ou página admin
-
-        return view('usuarios.dashboard');
+        $response = Gate::inspect('admin-user');
+        if($response->allowed()){
+            return redirect()->intended(RouteServiceProvider::ADMIN);
+        }else{
+            return view('usuarios.dashboard');
+        }
     }
 
     public function show(User $user) {

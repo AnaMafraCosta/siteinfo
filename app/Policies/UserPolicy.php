@@ -26,4 +26,10 @@ class UserPolicy
             ? Response::allow()
             : Response::deny('Não autorizado');
     }
+    public function admin(){
+        $user = Auth::user();
+        return isset($user)&& $user->role ==='admin'
+            ? Response::allow()
+            : Response::deny('Não autorizado');
+    }
 }

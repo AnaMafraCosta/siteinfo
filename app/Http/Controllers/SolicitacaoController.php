@@ -9,7 +9,7 @@ class SolicitacaoController extends Controller
 {
     public function index(){
         $lista = Solicitacao::all();
-        return view('usuarios.solicitacoes-internos', ['solicitacoes' => $lista]);
+        return view('usuarios.admin.solicitacoes-internos', ['solicitacoes' => $lista]);
     }
     
     public function store(Request $request) {
@@ -18,7 +18,7 @@ class SolicitacaoController extends Controller
         $solicitation->name = $request->post('name');
         $solicitation->email = $request->post('email');
         $solicitation->save();
-
+        $request->session()->flash('mensagem', "Informações do livro  forão atualizadas");
         return "Solicitção Enviada!";
     }
 }
