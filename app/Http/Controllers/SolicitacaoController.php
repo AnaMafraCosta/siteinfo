@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Solicitacao;
+use Illuminate\Support\Facades\Auth;
 
 class SolicitacaoController extends Controller
 {
@@ -19,6 +20,6 @@ class SolicitacaoController extends Controller
         $solicitation->email = $request->post('email');
         $solicitation->save();
         $request->session()->flash('mensagem', "Informações do livro  forão atualizadas");
-        return "Solicitção Enviada!";
+        return redirect()->to(route('user.show', [$user = Auth::user()]))->with('warning','Sua solicitação foi enviada com sucesso!');;
     }
 }

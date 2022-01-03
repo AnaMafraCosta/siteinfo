@@ -67,6 +67,9 @@ class UserController extends Controller
         
         return redirect()->to(route('user.show', ['user'=>$user]));
     }
-    
-
+    public function destroy(User $user)
+    {
+        User::findOrFail($user->id)->delete();
+        return redirect()->to(route('users.cadastrados'));
+    }
 }

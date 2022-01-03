@@ -24,7 +24,11 @@
                         <td>{{$user->email}}</td>
                         <td>
                             <a href="{{ route("admin.show", [$user->id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
-                            <a href="" class="btn-circle bg-danger text-white"><i class="fas fa-trash btn-lg"></i></a>
+                            <form action="{{route('user.destroy', [$user->id])}}" method="POST" style="display:inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-circle bg-danger text-white" ><i class="fa fa-trash btn-lg"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach                    
