@@ -8,10 +8,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Policies\UserPolicy;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Providers\RouteServiceProvider;
 class AdminController extends Controller
 {
+    use SoftDeletes;
     public function __construct()
     {
         $this->middleware('auth');
@@ -29,7 +32,7 @@ class AdminController extends Controller
 
     public function cadastrados()
     {
-        $lista = User::all();
+        $lista = User::where('id', '<>' ,[$user = Auth::user()->id])->withTrashed()->get();
 
         return view('usuarios.admin.users-cadastrados',['users'=>$lista]);
     }

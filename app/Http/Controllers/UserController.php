@@ -72,4 +72,9 @@ class UserController extends Controller
         User::findOrFail($user->id)->delete();
         return redirect()->to(route('users.cadastrados'));
     }
+    public function restore($id)
+    {
+        User::withTrashed()->find($id)->restore();
+        return redirect()->to(route('users.cadastrados'));
+    }
 }

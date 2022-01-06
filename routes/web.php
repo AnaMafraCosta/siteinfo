@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 
 // painel de controle para qualquer usuário
-
+Route::post('/user/restore/{id}', [UserController::class, 'restore'])->name('user.restore');
 Route::resource('/user', UserController::class);
 
 // Route::get('/dashboard', function () {

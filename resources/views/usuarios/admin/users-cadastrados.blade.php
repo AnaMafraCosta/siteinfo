@@ -23,12 +23,25 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <a href="{{ route("admin.show", [$user->id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
+                            @if($user->deleted_at===null)
+                            <abbr title="Ver perfil do usuário" style="text-decoration:none">
+                                <a href="{{ route("admin.show", [$user->id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
+                            </abbr>
                             <form action="{{route('user.destroy', [$user->id])}}" method="POST" style="display:inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-circle bg-danger text-white" ><i class="fa fa-trash btn-lg"></i></button>
+                                <abbr title="Excluir usuário" style="text-decoration:none">
+                                    <button type="submit" class="btn btn-circle bg-danger text-white" ><i class="fa fa-trash btn-lg"></i></button>
+                                </abbr>
                             </form>
+                            @else
+                            <form action="{{route('user.restore', [$user->id])}}" method="POST" style="display:inline-block">
+                                @csrf
+                                <abbr title="Reativar usuário" style="text-decoration:none">
+                                    <button type="submit" class="btn btn-circle bg-success text-white" tittle="Reativar Usuario"><i class="fa fa-reply btn-lg"></i></button>
+                                </abbr>
+                            </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach                    
