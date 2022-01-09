@@ -7,7 +7,7 @@
                             <div class="card-body p-0">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-2 d-lg-block align-items-center">
+                                    <div class="row-4 d-lg-block align-items-center" style="border-radius: 50%;">
                                         <img class="img-responsive img-profile rounded-circle d-flex w-100 h-60 mt-5" src="/img/profiles/{{$user->image}}">
                                     </div>
                                     <div class="col-lg-7">
