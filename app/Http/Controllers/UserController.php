@@ -64,16 +64,6 @@ class UserController extends Controller
             $image_resize->resize(200,300);
             $image_resize->save(public_path('img/profiles/'. $filename));
 
-
-
-
-            // $requestImage = $request->image;
-        
-            // $extension = $requestImage->extension();
-            // $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".". $extension;
-            // $image_resize = Image::make($image->getRealPath());
-            // $image_resize->resize(300,300);
-            // $requestImage->move(public_path('img/profiles'), $imageName);
             $user->image = $filename;
         }
 
