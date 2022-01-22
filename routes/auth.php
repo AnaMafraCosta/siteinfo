@@ -10,6 +10,12 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/login/{provider}', [AuthenticatedSessionController::class, 'redirectToProvider'])
+                ->middleware('guest')
+                ->name('social.login');
+Route::get('/login/{provider}/callback', [AuthenticatedSessionController::class, 'handleProviderCallback'])
+                ->middleware('guest')
+                ->name('social.callback');
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
                 ->name('register');
