@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SolicitacaoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginSocialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-
-
-
-
-
+Route::get('/login/{provider}', [LoginSocialController::class, 'redirectToProvider'])
+                ->name('social.login');
+Route::get('/login/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])
+                ->name('social.callback');
 // painel de controle para qualquer usuário
 Route::post('/user/restore/{id}', [UserController::class, 'restore'])->name('user.restore');
 Route::resource('/user', UserController::class);

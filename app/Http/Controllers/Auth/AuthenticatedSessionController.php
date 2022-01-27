@@ -37,6 +37,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
         
         $user = Auth::user();
+        
         if(isset($user)&& $user->role ==='admin'){
             return redirect()->intended(RouteServiceProvider::ADMIN);
         }
@@ -59,23 +60,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-    }
-
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
-
-    public function handleProviderCallback($provider)
-    {
-        $providerUser = Socialite::driver($provider)->user();
-        $user = User::firstOrCreate(['email'=> $providerUser->getEmail()],[
-            'name' => $providerUser->getName() ?? $providerUser->getNickname(),
-            'provider_id' => $providerUser->getId(),
-            'provider' => $provider,
-        ]);
-        Auth::login($user);
-        return redirect()->intended(RouteServiceProvider::HOME);
-        // $user->token;
     }
 }

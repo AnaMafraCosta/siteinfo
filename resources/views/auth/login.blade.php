@@ -37,6 +37,9 @@
     <a href="{{route('social.login', ['provider' => 'facebook'])}}" class="btn btn-facebook btn-user btn-block">
         <i class="fab fa-facebook-f fa-fw"></i> Entrar com o Facebook
     </a>
+    <a href="{{route('social.login', ['provider' => 'github'])}}" class="btn btn-dark btn-user btn-block">
+        <i class="fab fa-github fa-fw"></i> Entrar com o GitHub
+    </a>
 </form>
 @endsection
 
