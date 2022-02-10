@@ -18,8 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('site.home');
+})->name('home');
+Route::get('/curso', function () {
+    return view('site.curso');
+})->name('curso');
+Route::get('/sobre', function () {
+    return view('site.sobre');
+})->name('sobre');
 Route::get('/login/{provider}', [LoginSocialController::class, 'redirectToProvider'])
                 ->name('social.login');
 Route::get('/login/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])

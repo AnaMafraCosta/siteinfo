@@ -20,10 +20,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{asset('img/core-img/favicon.ico')}}">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary bg-info-orange">
 
     <div class="container">
 
