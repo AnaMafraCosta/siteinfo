@@ -56,7 +56,7 @@
                 <nav class="classy-navbar justify-content-between" id="uzaNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a>
+                    <a class="nav-brand" href="{{route('home')}}"><img src="./img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -74,7 +74,7 @@
                         <div class="classynav">
                             <ul id="nav">
                                 <li><a href="{{route('home')}}">Home</a></li>
-                                <li><a href="#">Pages</a>
+                                <!-- <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="./index.html">- Home</a></li>
                                         <li><a href="{{route('curso')}}">- Curso</a></li>
@@ -100,15 +100,15 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                <li><a href="./portfolio.html">Portfolio</a></li>
+                                </li> -->
+                                <!-- <li><a href="./portfolio.html">Portfolio</a></li> -->
                                 <li class=""><a href="{{route('curso')}}">Curso</a></li>
-                                <li><a href="#">Blog</a>
+                                <!-- <li><a href="#">Blog</a>
                                     <ul class="dropdown">
                                         <li><a href="./blog.html">- Blog</a></li>
                                         <li><a href="./single-blog.html">- Blog Details</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li><a href="{{route('sobre')}}">Sobre</a></li>
                             </ul>
 
