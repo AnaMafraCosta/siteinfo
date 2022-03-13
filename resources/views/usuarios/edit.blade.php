@@ -46,8 +46,8 @@
                                                 </div>
                                                 <hr>
                                                 <div class="form-group row">
-                                                    <a href="{{route('user.show', [$user = Auth::user()])}}" class="btn bg-danger text-dark btn-user col-sm-5 mr-auto" value="Cancelar Edição">Cancelar Edição</a>
-                                                    <input type="submit" class="btn bg-success text-dark btn-user col-sm-5 ml-auto" value="Salvar Perfil">
+                                                    <a href="{{route('user.show', [$user = Auth::user()])}}" class="btn bg-warning text-light btn-user col-sm-5 mr-auto" value="Cancelar Edição">Cancelar Edição</a>
+                                                    <input type="submit" class="btn bg-primary text-light btn-user col-sm-5 ml-auto" value="Salvar Perfil">
                                                 </div>
                                             </form>
                                             

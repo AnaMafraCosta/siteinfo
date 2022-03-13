@@ -25,9 +25,9 @@
                         <td>{{ $solicitacao->name }}</td>
                         <td>{{ $solicitacao->email }}</td>
                         <td>
-                        <a href="{{ route("admin.show", [$solicitacao->user_id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
+                        <a href="{{ route("admin.show", [$solicitacao->user_id]) }}" class="btn-circle bg-primary text-white"><i class="fas fa-info btn-lg"></i></a>
                             <a href="" class="btn-circle bg-success text-white"><i class="fas fa-check  btn-lg"></i></a>
-                            <a href="" class="btn-circle bg-danger text-white"><i class="fas fa-times btn-lg"></i></a>
+                            <a href="" class="btn-circle bg-warning text-white"><i class="fas fa-times btn-lg"></i></a>
                         </td>
                     </tr>
 

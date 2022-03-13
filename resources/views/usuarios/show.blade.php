@@ -29,7 +29,7 @@
                                                 </div>
             
                                                 <div class="form-group row">
-                                                    <a href="{{route('user.edit', [$user = Auth::user()])}}" class="btn bg-warning text-dark btn-user col-sm-5 ml-auto">Editar Perfil</a>
+                                                    <a href="{{route('user.edit', [$user = Auth::user()])}}" class="btn bg-warning text-light btn-user col-sm-5 ml-auto">Editar Perfil</a>
                                                 </div>                                            
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                             </form>
                                             
 
-                                            <input type="submit" class="btn bg-info text-dark btn-user col-sm-4 ml-auto" value="Enviar Solicitação" onclick=document.getElementById('form_soli').submit(); return false;>
+                                            <input type="submit" class="btn bg-gradient-primary text-light btn-user col-sm-4 ml-auto" value="Enviar Solicitação" onclick=document.getElementById('form_soli').submit(); return false;>
 
                                         </div>
                                     </div>

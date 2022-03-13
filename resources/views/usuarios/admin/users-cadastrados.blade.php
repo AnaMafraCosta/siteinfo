@@ -25,20 +25,20 @@
                         <td>
                             @if($user->deleted_at===null)
                             <abbr title="Ver perfil do usuário" style="text-decoration:none">
-                                <a href="{{ route("admin.show", [$user->id]) }}" class="btn-circle bg-info text-white"><i class="fas fa-info btn-lg"></i></a>
+                                <a href="{{ route("admin.show", [$user->id]) }}" class="btn-circle bg-primary text-white"><i class="fas fa-info btn-lg"></i></a>
                             </abbr>
                             <form action="{{route('user.destroy', [$user->id])}}" method="POST" style="display:inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <abbr title="Excluir usuário" style="text-decoration:none">
-                                    <button type="submit" class="btn btn-circle bg-danger text-white" ><i class="fa fa-trash btn-lg"></i></button>
+                                    <button type="submit" class="btn btn-circle bg-warning text-white" ><i class="fa fa-trash btn-lg"></i></button>
                                 </abbr>
                             </form>
                             @else
                             <form action="{{route('user.restore', [$user->id])}}" method="POST" style="display:inline-block">
                                 @csrf
                                 <abbr title="Reativar usuário" style="text-decoration:none">
-                                    <button type="submit" class="btn btn-circle bg-success text-white" tittle="Reativar Usuario"><i class="fa fa-reply btn-lg"></i></button>
+                                    <button type="submit" class="btn btn-circle bg-primary text-white" tittle="Reativar Usuario"><i class="fa fa-reply btn-lg"></i></button>
                                 </abbr>
                             </form>
                             @endif
