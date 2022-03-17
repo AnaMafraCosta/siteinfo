@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('aba')
+<title>Usuários</title>
+@endsection
 @section('conteudo')
     <h1 class="h3 mb-4 text-gray-800"></h1>
 

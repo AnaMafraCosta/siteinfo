@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('aba')
+<title>Editar Perfil</title>
+@endsection
 @section('conteudo')
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800"></h1>

@@ -16,14 +16,14 @@
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
                             <!-- Welcome Text -->
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-lg-6">
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms">Curso de<br><span>Informática</span></h2>
                                     <h5 data-animation="fadeInUp" data-delay="400ms">IFRN - Campus Caicó</h5>
                                 </div>
                             </div>
                             <!-- Welcome Thumbnail -->
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-lg-6">
                                 <div class="welcome-thumbnail">
                                     <img src="./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
                                 </div>
@@ -327,86 +327,8 @@
     <!-- ***** Portfolio Area End ***** -->
 
     <!-- ***** Blog Area Start ***** -->
-    <section class="uza-blog-area">
-        <!-- Background Curve -->
-        <div class="blog-bg-curve">
-            <img src="./img/core-img/curve-4.png" alt="">
-        </div>
-        <div class="container">
-            <div class="row">
-                <!-- Section Heading -->
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2>Our Latest Blogs</h2>
-                        <p>Hit the button below or give us a call!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <!-- Single Blog Post -->
-                <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/8.jpg);">
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <span class="post-date"><span>23</span> August, 2018</span>
-                            <a href="#" class="post-title">SEO: The Movie By Ignite Visibility</a>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing esed diam nonumy eirmod tempor invidunt ut</p>
-                            <a href="#" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/9.jpg);">
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <span class="post-date"><span>13</span> December, 2018</span>
-                            <a href="#" class="post-title">What Curling Irons Are The Best Ones</a>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing esed diam nonumy eirmod tempor invidunt ut</p>
-                            <a href="#" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Blog Post -->
-                <div class="col-12 col-lg-4">
-                    <div class="single-blog-post bg-img mb-80" style="background-image: url(./img/bg-img/10.jpg);">
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <span class="post-date"><span>08</span> July, 2018</span>
-                            <a href="#" class="post-title">Amazon REV Workshop: Road to Seattle</a>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing esed diam nonumy eirmod tempor invidunt ut</p>
-                            <a href="#" class="read-more-btn">Read More <i class="arrow_carrot-2right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
     <!-- ***** Blog Area End ***** -->
 
-    <!-- ***** Newsletter Area Start ***** -->
-    <section class="uza-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <!-- Newsletter Content -->
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="nl-content mb-80">
-                </div>
-                <!-- Newsletter Form -->
-                <div class="col-12 col-md-6 col-lg-5">
-                    <div class="nl-form mb-80">
-        
-                    </div>
-                </div>
-            </div>
-            <!-- Border Bottom -->
-            <div class="border-line"></div>
-        </div>
-    </section>
+    
     <!-- ***** Newsletter Area End ***** -->
 @endsection

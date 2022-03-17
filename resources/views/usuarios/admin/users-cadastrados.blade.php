@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('aba')
+<title>Usuários Cadastrados</title>
+@endsection
 @section('conteudo')
 <div class="card shadow mb-4">
     <div class="card-header py-3">

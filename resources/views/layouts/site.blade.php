@@ -157,7 +157,7 @@
 
                         <!-- Copywrite Text -->
                         <div class="copywrite-text mb-30">
-                            <p>&copy; Copyright 2018 <a href="#">Colorlib</a>.</p>
+                            <p>&copy; Copyright 2022 <a href="#">IFRN</a>.</p>
                         </div>
 
                         <!-- Social Info -->
@@ -171,10 +171,6 @@
 
             </div>
             <div class="row" style="margin-bottom: 30px;">
-                
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
         </div>
     </footer>

@@ -468,7 +468,7 @@ input:focus {
     top: 0;
     width: 100%;
     position: fixed;
-    background-color: #e7f2fd;
+    background-color:#FCA311;
     -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
     border-bottom: none;
@@ -1147,9 +1147,12 @@ input:focus {
     width: 100%; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .about-us-thumbnail {
-      padding-right: 0; } }
+      padding-right: 0;
+      display: none;
+     } }
   @media only screen and (max-width: 767px) {
     .about-us-thumbnail {
+      display: none;
       padding-right: 0; } }
 
 .uza-video-area {

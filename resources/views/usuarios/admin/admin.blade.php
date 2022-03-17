@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('aba')
+<title>Painel de Controle</title>
+@endsection
 @section('conteudo')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
