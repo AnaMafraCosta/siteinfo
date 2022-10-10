@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SolicitacaoController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginSocialController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,36 +18,52 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-});
+    return view('site.home');
+})->name('home');
+Route::get('/curso', function () {
+    return view('site.curso');
+})->name('curso');
+Route::get('/sobre', function () {
+    return view('site.sobre');
+})->name('sobre');
+Route::get('/login/{provider}', [LoginSocialController::class, 'redirectToProvider'])
+                ->name('social.login');
+Route::get('/login/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])
+                ->name('social.callback');
+// painel de controle para qualquer usuário
+Route::post('/user/restore/{id}', [UserController::class, 'restore'])->name('user.restore');
+Route::resource('/user', UserController::class);
 
-Route::get('/meusposts', function () {
-    return view('meus-posts');
-});
+// Route::get('/dashboard', function () {
+//     return view('usuarios.dashboard');
+// })->middleware(['auth']);
 
-Route::get('/admin', function () {
-    return view('dashboard-admin');
-});
+// Route::get('/meusposts', function () {
+//     return view('meus-posts');
+// });
 
-Route::get('/editar', function () {
-    return view('perfil-editar');
-});
+// painel de controle usuário admin
 
-Route::get('/perfil', function () {
-    return view('perfil-usuario');
-});
+Route::post('/admin/solicitacoes', [SolicitacaoController::class, 'store'])->name('solicitacaos.store');
 
-Route::get('/publicados', function () {
-    return view('post-publicado');
-});
+Route::get('/admin/solicitacoes', [SolicitacaoController::class, 'index'])->name('solicitacoes.usuarios');
 
-Route::get('/verpost', function () {
-    return view('ver-post');
-});
+Route::get('/admin/cadastrados', [AdminController::class, 'cadastrados'])->name('users.cadastrados');
 
-Route::get('/inicio', function () {
-    return view('welcome');
-});
+Route::resource('/admin', AdminController::class);
+
+// Route::get('/admin', function () {
+//     return view('usuarios.admin.admin');
+// })->middleware(['auth']);
+
+// Route::get('/publicados', function () {
+//     return view('posts.post-publicado');
+// });
+
+// Route::get('/verpost', function () {
+//     return view('posts.ver-post');
+// });
+
 
 //Route::get('/login',[UsersController::class,'login'])->name('login');
 //Route::get('/register',[UsersController::class,'register'])->name('register');

@@ -1,50 +1,55 @@
 @extends('layouts.auth')
 
 @section('titulo')
-    Login - Usuário
+    Login
+@endsection
+@section('subtitulo')
+    Login
 @endsection
 
 @section('mensagem')
     Bem-vindo de volta!
 @endsection
-
-@section('form')
-<form class="user" action="{{route('login')}}" method="POST" >
-    @csrf
-    <div class="form-group">
-        <input type="email" class="form-control form-control-user"
-            id="email" name="email" aria-describedby="emailHelp"
-            placeholder="Insira o endereço de email">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control form-control-user"
-            id="password" name="password" placeholder="Senha">
-    </div>
-    <div class="form-group">
-        <div class="custom-control custom-checkbox small">
-            <input type="checkbox" class="custom-control-input" id="customCheck">
-            <label class="custom-control-label" for="customCheck">Lembre de mim</label>
-        </div>
-    </div>
-    <button class="btn btn-primary btn-user btn-block" >
-        Entrar
-    </button>
-
-    <hr>
-    <a href="index.html" class="btn btn-google btn-user btn-block">
-        <i class="fab fa-google fa-fw"></i> Entrar com o Google
-    </a>
-    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-        <i class="fab fa-facebook-f fa-fw"></i> Entrar com o Facebook
-    </a>
-</form>
+@section('imagem')
+<img src="./img/bg-img/36.png" alt="">
 @endsection
 
-@section('links')
-<div class="text-center">
-    <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
-</div>
-<div class="text-center">
-    <a class="small" href="register.html">Crie uma conta!</a>
-</div>   
+@section('form')
+<form class="user uza-contact-form" action="{{route('login')}}" method="post">
+@csrf
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-6 ">
+        <input type="email" name="email" id="email" class="form-control mb-30" placeholder="Insira o endereço de email">
+    </div>
+    <div class="col-lg-6">
+        <input type="password" id="password" name="password" placeholder="Senha" class="form-control mb-30">
+    </div>
+    <div class="col-12 row d-flex justify-content-center">
+        <button type="submit" class="btn uza-btn btn-block btn-3 mt-15 float-right ">Entrar</button>
+    </div>
+    <div class="col-12 text-center">
+        <br>
+    <a href="{{route('social.login', ['provider' => 'google'])}}" class="btn uza-btn btn-block btn-2">
+        <i class="fa fa-google "></i> Entrar com o Google
+    </a>
+    </div>
+    <div class="col-12  text-center">
+    <br>
+    <a href="{{route('social.login', ['provider' => 'facebook'])}}" class="facebook btn-block btn uza-btn btn-2">
+        <i class="fa fa-facebook"></i> Entrar com o Facebook
+    </a>
+    </div>
+    <div class="col-12  text-center">
+    <br>
+    <a href="{{route('social.login', ['provider' => 'github'])}}" class="btn btn-block uza-btn btn-2">
+        <i class="fa fa-github"></i> Entrar com o GitHub
+    </a>
+    </div>
+    <div class="text-center">
+        <br>
+    <a class="btn" href="{{url('/register')}}">Ainda não tem uma conta? Crie uma!</a>
+    </div>
+
+</div> 
+</form>
 @endsection
